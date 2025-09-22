@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:jobs_dashboard/core/theme/app_colors.dart';
 import '../state/jobs_controller.dart';
 import 'widgets/job_tile.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -35,7 +36,9 @@ class JobsPage extends ConsumerWidget {
               children: [
                 Icon(
                   MdiIcons.tune,
-                  color: state.showAppliedOnly ? Colors.amber : Colors.black,
+                  color: state.showAppliedOnly
+                      ? Colors.amber
+                      : AppColors.textPrimary,
                 ),
                 if (state.showAppliedOnly)
                   Positioned(
@@ -44,7 +47,7 @@ class JobsPage extends ConsumerWidget {
                     child: Container(
                       padding: const EdgeInsets.all(2),
                       decoration: const BoxDecoration(
-                        color: Colors.red,
+                        color: AppColors.error,
                         shape: BoxShape.circle,
                       ),
                       constraints:
@@ -52,7 +55,7 @@ class JobsPage extends ConsumerWidget {
                       child: const Text(
                         '1',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: AppColors.background,
                           fontSize: 10,
                           fontWeight: FontWeight.bold,
                         ),
